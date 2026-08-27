@@ -2,14 +2,162 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>❤Tớ yêu cậu, Kim Trang❤Love you forever❤</title>
+<title>❤ Một đoạn ký ức | Việt Hoàng & Kim Trang ❤</title>
 
 <!-- Font Independence -->
 <style type="text/css">
 @font-face {
-	font-family: digit;
-	src: url('digital-7_mono.ttf') format("truetype");
+    font-family: digit;
+    src: url('digital-7_mono.ttf') format("truetype");
 }
+
+/* Chỉ bổ sung nhẹ để phần kết thúc rõ ràng hơn, vẫn giữ giao diện gốc */
+.closure-note {
+    text-align: center;
+    margin: 8px auto 18px auto;
+    padding: 0 16px;
+    max-width: 760px;
+    font: normal 18px/30px 'Times New Roman', serif;
+    color: #FF7F00;
+    font-style: italic;
+}
+
+.closure-time {
+    font-weight: bold;
+    font-style: normal;
+}
+
+.memory-label {
+    text-align: center;
+    margin: 0 auto 12px auto;
+    font: normal 14px/24px 'Microsoft YaHei', sans-serif;
+    color: #FF7F00;
+}
+
+/* Kỷ niệm: những tin nhắn đầu tiên còn lưu lại */
+.first-memory {
+    box-sizing: border-box;
+    width: calc(100% - 32px);
+    max-width: 760px;
+    margin: 22px auto 28px auto;
+    padding: 24px 26px;
+    border: 1px solid rgba(255, 127, 0, 0.35);
+    border-radius: 18px;
+    background: rgba(255, 127, 0, 0.055);
+    text-align: left;
+    color: #6f3e10;
+    font-family: 'Microsoft YaHei', Arial, sans-serif;
+}
+
+.first-memory .memory-kicker {
+    margin-bottom: 8px;
+    color: #FF7F00;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.first-memory .memory-title {
+    margin: 0 0 8px 0;
+    color: #FF7F00;
+    font: bold 24px/34px 'Times New Roman', serif;
+    text-align: center;
+}
+
+.first-memory .memory-intro {
+    max-width: 620px;
+    margin: 0 auto 18px auto;
+    color: #8a5b2d;
+    font: italic 16px/26px 'Times New Roman', serif;
+    text-align: center;
+}
+
+.first-memory .chat-row {
+    max-width: 580px;
+    margin: 10px auto;
+}
+
+.first-memory .chat-name {
+    margin: 0 8px 4px 8px;
+    color: #9d6c3b;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.first-memory .chat-time {
+    opacity: 0.75;
+    font-weight: normal;
+}
+
+.first-memory .chat-bubble {
+    display: inline-block;
+    max-width: 86%;
+    padding: 11px 15px;
+    border-radius: 15px;
+    color: #4a2b0f;
+    background: #fff8ef;
+    border: 1px solid rgba(255, 127, 0, 0.2);
+    font-size: 15px;
+    line-height: 23px;
+    word-break: break-word;
+}
+
+.first-memory .chat-row.right {
+    text-align: right;
+}
+
+.first-memory .chat-row.right .chat-bubble {
+    background: #fff0df;
+}
+
+.first-memory .memory-note {
+    margin: 18px auto 13px auto;
+    max-width: 620px;
+    color: #8a5b2d;
+    font: normal 14px/23px 'Microsoft YaHei', Arial, sans-serif;
+    text-align: center;
+}
+
+.first-memory .memory-button-wrap {
+    text-align: center;
+}
+
+.first-memory .memory-button {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 999px;
+    color: #ffffff !important;
+    background: #FF7F00;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 20px;
+    transition: opacity .2s ease, transform .2s ease;
+}
+
+.first-memory .memory-button:hover {
+    opacity: .88;
+    transform: translateY(-1px);
+}
+
+@media screen and (max-width: 600px) {
+    .first-memory {
+        width: calc(100% - 20px);
+        padding: 19px 15px;
+        border-radius: 14px;
+    }
+
+    .first-memory .memory-title {
+        font-size: 21px;
+        line-height: 30px;
+    }
+
+    .first-memory .chat-bubble {
+        max-width: 92%;
+    }
+}
+
 </style>
 
 <!-- Default CSS -->
@@ -23,97 +171,159 @@
 <!-- Font -->
 <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:700' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
-
 </head>
 
 <body>
-			<audio autoplay="autoplay" loop>
-					<source src="/music/motnha.mp3" type="audio/mp3">
-			</audio>  
-        <div id="main">
+
+<!--
+    Trang này trước đây dùng nhạc "Một Nhà" tự động phát.
+    Sau khi câu chuyện đã dừng lại, phần autoplay được chủ động bỏ đi.
+-->
+
+<div id="main">
 <div id="mainDiv">
-	<div id="content">
-	
-		<!-- TEXT [EDIT ONLY] -->
-	
-				<!-- END TEXT -->
-		
-		<!-- MESSAGES HEART -->
-		<div id="loveHeart">
-			<canvas id="garden"></canvas>
-			<div id="words">
-				<div id="messages">
-					Kim Trang, tớ và cậu đã yêu nhau được ... 
-					<div id="elapseClock"></div>
-				</div>
-				<div id="loveu">
-					Tớ yêu cậu, mãi mãi yêu cậu ❤<br/>
-					<div class="signature">25251325 - Việt Hoàng<div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div id="content">
+
+        <!-- MESSAGES HEART -->
+        <div id="loveHeart">
+            <canvas id="garden"></canvas>
+
+            <div id="words">
+                <div id="messages">
+                    Kim Trang, tớ và cậu đã từng bên nhau trong...
+                    <div id="elapseClock"></div>
+                </div>
+
+                <div id="loveu">
+                    Cảm ơn cậu vì đã đồng hành ❤<br/>
+					Xin lỗi cậu...<br/>
+                    <div class="signature">Việt Hoàng...</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="closure-note">
+    Hành trình ấy đã dừng lại vào
+    <span class="closure-time">12:52, thứ Năm, ngày 14/05/2026</span>.<br/>
+    Thời gian vẫn tiếp tục trôi, còn trang này xin giữ lại một đoạn ký ức đã khép lại.
 </div>
 
 
-<div style="text-align:center;margin:0px 0; font:normal 28px/48px 'time new roman';color:#FF7F00;font-style: italic;">
-<p>Khi nào thời gian vẫn trôi thì tớ vẫn yêu cậu ❤</b></p>
+<!-- KỶ NIỆM: NHỮNG TIN NHẮN ĐẦU TIÊN CÒN LƯU LẠI -->
+<div class="first-memory">
+    <div class="memory-kicker">12.03.2015 · Trước ngày 22.02.2017</div>
+    <div class="memory-title">Tin nhắn đầu tiên còn lưu lại</div>
+
+    <div class="memory-intro">
+        Có những câu chuyện bắt đầu từ những điều rất bình thường.
+        Trước cả ngày chúng ta gọi tên mối quan hệ ấy, đã từng có những dòng tin nhắn như thế này.
+    </div>
+
+    <div class="chat-row right">
+        <div class="chat-name">Viet Hoang Nguyen <span class="chat-time">· 14:37</span></div>
+        <div class="chat-bubble">gửi bài cho tôi</div>
+    </div>
+
+    <div class="chat-row">
+        <div class="chat-name">Trang Lê <span class="chat-time">· 14:39</span></div>
+        <div class="chat-bubble">Đã gửi lại một đường dẫn Google Drive.</div>
+    </div>
+
+    <div class="memory-note">
+        Bản lưu còn lại gồm 135 tin nhắn, từ những chuyện học hành rất nhỏ nhặt,
+        những lần hỏi bài, dò đáp án, chúc sinh nhật... — một phần ký ức từ trước khi câu chuyện chính thức bắt đầu.
+    </div>
+
+    <div class="memory-button-wrap">
+        <a class="memory-button" href="firstmess.html" target="_blank" rel="noopener">
+            Mở lại 135 tin nhắn cũ đầu tiên...
+        </a>
+    </div>
 </div>
-		
-<div style="text-align:center;margin:0px 0; font:normal 14px/24px 'MicroSoft YaHei';color:#FF7F00">
-<p>Nguyễn Việt Hoàng ❤❤❤ Lê Phùng Kim Trang</b></p>
-	<a href="https://kimtrangloveuforever.github.io/loveu">
-        <img alt="Vợ iu" src="/anh.jpg" width="250" height="250">
-	</a>
+
+<div style="text-align:center;margin:0px 0; font:normal 14px/24px 'Microsoft YaHei';color:#FF7F00">
+    <p>Nguyễn Việt Hoàng &nbsp;•&nbsp; Lê Phùng Kim Trang</p>
+
+    <!-- Giữ lại tấm ảnh như một kỷ niệm, nhưng không còn dẫn sang trang "loveu" cũ -->
+    <p>❤</p>
 </div>
-	
-<div style="text-align:center;margin:0px 0; font:normal 14px/24px 'MicroSoft YaHei';color:#FF7F00">
-	<a href="https://kimtrangloveuforever.github.io/LoveHeart.html">
-        <img alt="Trend Trái Tim 1" src="/LoveHeart.png" width="250" height="250">
-	</a>
-	<br>
-	<a href="https://kimtrangloveuforever.github.io/TraiTim.html">
-        <img alt="Trend Trái Tim 2" src="/TraiTim.png" width="250" height="250">
-	</a>
-	<p>❤❤❤</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Hi_j68B9wTw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-	
-<!-- [!] CHANGE TIME HERRE [!] -->
+
+<!--
+    MỐC THỜI GIAN:
+    Bắt đầu: 00:00 ngày 22/02/2017
+    Dừng lại: 12:52 ngày 14/05/2026 (giờ Việt Nam)
+
+    Khoảng thời gian cố định: 3368 ngày 12 giờ 52 phút 00 giây.
+    Đồng hồ bên dưới KHÔNG chạy tiếp theo thời gian hiện tại.
+-->
 <script type="text/javascript">
 var offsetX = $("#loveHeart").width() / 2;
 var offsetY = $("#loveHeart").height() / 2 - 50;
-var together = new Date();
-together.setFullYear(2017, 01, 22); // <--- Edit Time Here 
-together.setHours(0);
-together.setMinutes(0);
-together.setSeconds(0);
-together.setMilliseconds(0);
+
+/*
+ * Dùng UTC cho cả hai mốc để khoảng thời gian luôn cố định,
+ * không bị ảnh hưởng bởi múi giờ hoặc DST trên thiết bị người xem.
+ */
+var together = new Date(Date.UTC(2017, 1, 22, 0, 0, 0));
+var stoppedAt = new Date(Date.UTC(2026, 4, 14, 12, 52, 0));
+
+function timeElapseBetween(startDate, endDate) {
+    var seconds = Math.floor((endDate.getTime() - startDate.getTime()) / 1000);
+
+    var days = Math.floor(seconds / (3600 * 24));
+    seconds = seconds % (3600 * 24);
+
+    var hours = Math.floor(seconds / 3600);
+    if (hours < 10) {
+        hours = "0" + hours;
+    }
+
+    seconds = seconds % 3600;
+
+    var minutes = Math.floor(seconds / 60);
+    if (minutes < 10) {
+        minutes = "0" + minutes;
+    }
+
+    seconds = seconds % 60;
+    if (seconds < 10) {
+        seconds = "0" + seconds;
+    }
+
+    var result =
+        "<span class=\"digit\">" + days + "</span> ngày " +
+        "<span class=\"digit\">" + hours + "</span> giờ " +
+        "<span class=\"digit\">" + minutes + "</span> phút " +
+        "<span class=\"digit\">" + seconds + "</span> giây";
+
+    $("#elapseClock").html(result);
+}
 
 if (!document.createElement('canvas').getContext) {
-	var msg = document.createElement("div");
-	msg.id = "errorMsg";
-	msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
-	document.body.appendChild(msg);
-	$("#code").css("display", "none")
-	$("#copyright").css("position", "absolute");
-	$("#copyright").css("bottom", "10px");
-	document.execCommand("stop");
+    var msg = document.createElement("div");
+    msg.id = "errorMsg";
+    msg.innerHTML = "Trình duyệt của bạn không hỗ trợ HTML5.";
+    document.body.appendChild(msg);
+
+    $("#code").css("display", "none");
+    $("#copyright").css("position", "absolute");
+    $("#copyright").css("bottom", "10px");
+    document.execCommand("stop");
 } else {
-	setTimeout(function () {
-		startHeartAnimation();
-	}, 1000);
+    setTimeout(function () {
+        startHeartAnimation();
+    }, 1000);
 
-	timeElapse(together);
-	setInterval(function () {
-		timeElapse(together);
-	}, 100);
+    // Chỉ tính một lần tới đúng thời điểm câu chuyện dừng lại.
+    timeElapseBetween(together, stoppedAt);
 
-	adjustCodePosition();
-	$("#code").typewriter();
+    adjustCodePosition();
+    $("#code").typewriter();
 }
 </script>
-<!-- [!] CHANGE TIME HERRE [!] -->
 
 </body>
 </html>

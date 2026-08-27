@@ -1,0 +1,1146 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fff8ef">
+<title>❤ Những tin nhắn đầu tiên | Việt Hoàng & Kim Trang ❤</title>
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700|Roboto+Condensed:700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --orange: #FF7F00;
+    --orange-soft: #fff0df;
+    --cream: #fffaf4;
+    --ink: #5b3517;
+    --muted: #a87649;
+    --line: rgba(255,127,0,.22);
+    --shadow: rgba(108,64,21,.10);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--ink);
+    background:
+        radial-gradient(circle at 50% -120px, rgba(255,127,0,.17), transparent 430px),
+        linear-gradient(180deg, #fffdf9 0%, var(--cream) 50%, #fff7ee 100%);
+    font-family: "Roboto", "Microsoft YaHei", Arial, sans-serif;
+}
+
+a {
+    color: var(--orange);
+    overflow-wrap: anywhere;
+}
+
+.page-shell {
+    width: min(860px, calc(100% - 24px));
+    margin: 0 auto;
+    padding: 28px 0 54px;
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 28px;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 14px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: rgba(255,255,255,.78);
+    color: var(--orange);
+    text-decoration: none;
+    font-size: 14px;
+    box-shadow: 0 8px 24px var(--shadow);
+    backdrop-filter: blur(8px);
+}
+
+.archive-count {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 40px 26px 35px;
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    background: rgba(255,255,255,.75);
+    text-align: center;
+    box-shadow: 0 18px 50px var(--shadow);
+}
+
+.hero::before,
+.hero::after {
+    content: "❤";
+    position: absolute;
+    color: rgba(255,127,0,.075);
+    line-height: 1;
+    pointer-events: none;
+}
+
+.hero::before {
+    top: -38px;
+    left: -20px;
+    font-size: 155px;
+    transform: rotate(-14deg);
+}
+
+.hero::after {
+    right: -20px;
+    bottom: -46px;
+    font-size: 175px;
+    transform: rotate(12deg);
+}
+
+.kicker {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 8px;
+    color: var(--orange);
+    font: 700 12px/20px "Roboto Condensed", sans-serif;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    color: var(--orange);
+    font: 700 clamp(30px, 6vw, 46px)/1.12 "Times New Roman", serif;
+}
+
+.subtitle {
+    position: relative;
+    z-index: 1;
+    max-width: 650px;
+    margin: 16px auto 0;
+    color: #8a5b2d;
+    font: italic 17px/29px "Times New Roman", serif;
+}
+
+.range {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    margin-top: 18px;
+    padding: 8px 13px;
+    border-radius: 999px;
+    background: var(--orange-soft);
+    color: #a25206;
+    font-size: 13px;
+}
+
+.intro {
+    max-width: 690px;
+    margin: 24px auto 8px;
+    padding: 0 14px;
+    color: #91643a;
+    text-align: center;
+    font: normal 14px/24px "Microsoft YaHei", Arial, sans-serif;
+}
+
+.chat {
+    width: min(700px, 100%);
+    margin: 26px auto 0;
+}
+
+.day-separator {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 30px 0 18px;
+    color: #b27842;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .35px;
+}
+
+.day-separator::before,
+.day-separator::after {
+    content: "";
+    height: 1px;
+    flex: 1;
+    background: linear-gradient(90deg, transparent, var(--line));
+}
+
+.day-separator::after {
+    background: linear-gradient(90deg, var(--line), transparent);
+}
+
+.message {
+    width: 100%;
+    margin: 11px 0;
+}
+
+.message-meta {
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+    margin: 0 10px 5px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.sender { font-weight: 700; }
+.time { opacity: .78; }
+
+.message.me { text-align: right; }
+.message.me .message-meta { justify-content: flex-end; }
+
+.bubble {
+    display: inline-block;
+    max-width: min(82%, 560px);
+    padding: 11px 15px;
+    border: 1px solid rgba(255,127,0,.16);
+    border-radius: 17px 17px 17px 6px;
+    background: rgba(255,255,255,.94);
+    color: #513013;
+    text-align: left;
+    font-size: 15px;
+    line-height: 23px;
+    box-shadow: 0 5px 16px rgba(108,64,21,.055);
+    overflow-wrap: anywhere;
+}
+
+.message.me .bubble {
+    border-color: rgba(255,127,0,.21);
+    border-radius: 17px 17px 6px 17px;
+    background: var(--orange-soft);
+}
+
+.empty-message {
+    color: #b98c63;
+    font-style: italic;
+}
+
+.footer-card {
+    width: min(700px, 100%);
+    margin: 34px auto 0;
+    padding: 28px 22px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    color: #8a5b2d;
+}
+
+.footer-heart {
+    margin-bottom: 7px;
+    color: var(--orange);
+    font-size: 26px;
+}
+
+.footer-card p {
+    margin: 5px auto;
+    font: italic 16px/27px "Times New Roman", serif;
+}
+
+.footer-card .small {
+    margin-top: 12px;
+    color: #b07c4c;
+    font: normal 12px/20px "Roboto", sans-serif;
+}
+
+.to-top {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--orange);
+    text-decoration: none;
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+    .page-shell {
+        width: min(100% - 16px, 860px);
+        padding-top: 14px;
+    }
+
+    .topbar {
+        margin: 0 4px 16px;
+    }
+
+    .archive-count {
+        display: none;
+    }
+
+    .hero {
+        padding: 31px 17px 28px;
+        border-radius: 22px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    .bubble {
+        max-width: 89%;
+        font-size: 15px;
+        line-height: 22px;
+    }
+}
+</style>
+</head>
+
+<body id="top">
+<main class="page-shell">
+
+    <div class="topbar">
+        <a class="back-link" href="index.html">← Trở về trang kỷ niệm</a>
+        <div class="archive-count">135 tin nhắn được lưu lại</div>
+    </div>
+
+    <header class="hero">
+        <div class="kicker">12.03.2015 · Một đoạn ký ức</div>
+        <h1>Những tin nhắn đầu tiên</h1>
+
+        <div class="subtitle">
+            Có những câu chuyện bắt đầu từ những điều rất bình thường —
+            một câu hỏi bài, một lời cảm ơn, một lần dò đáp án…
+        </div>
+
+        <div class="range">
+            12/03/2015 — 27/12/2015 · 135 tin nhắn
+        </div>
+    </header>
+
+    <div class="intro">
+        
+    </div>
+
+    <section class="chat" aria-label="Lịch sử tin nhắn">
+        
+    <div class="day-separator">
+        <span>Thứ Năm, 12/03/2015</span>
+    </div>
+    
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">14:37</span>
+            </div>
+            <div class="bubble">gửi bài cho tôi</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">14:39</span>
+            </div>
+            <div class="bubble"><a href="https://drive.google.com/file/d/0BwqsiEJYCOSwdTQ1RHBwbmRZRzQ/view" target="_blank" rel="noopener noreferrer">https://drive.google.com/file/d/0BwqsiEJYCOSwdTQ1RHBwbmRZRzQ/view</a></div>
+			<div class="bubble"><a href="https://drive.google.com/file/d/0BwqsiEJYCOSwdTQ1RHBwbmRZRzQ/view?resourcekey=0-zSVh6ibOyHtPLEJ-RnQgew" target="_blank" rel="noopener noreferrer">https://drive.google.com/file/d/0BwqsiEJYCOSwdTQ1RHBwbmRZRzQ/view?resourcekey=0-zSVh6ibOyHtPLEJ-RnQgew/<a></div>
+			
+        </article>
+        
+    <div class="day-separator">
+        <span>Thứ Năm, 11/06/2015</span>
+    </div>
+    
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">09:42</span>
+            </div>
+            <div class="bubble">bà học thầy duyên đúng không. nhà thầy ở đâu vậy?</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">11:02</span>
+            </div>
+            <div class="bubble">ở gần trường phạm văn chiêu á<br>gò vấp á<br>tối nay tui đi học nè</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">11:05</span>
+            </div>
+            <div class="bubble">tôi hỏi phong rồi. mà cái hẻm cạnh trường hay sao</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">11:06</span>
+            </div>
+            <div class="bubble">là kế bên trường PVC có thêm 1 trường cấp 1 rồi kế bên có cái hẻm quẹo vô</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">11:07</span>
+            </div>
+            <div class="bubble">mà tôi học khóa 12 mới, 3h, học phí bao nhiêu vậy</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">11:07</span>
+            </div>
+            <div class="bubble">khoảng 1tr8 1 HK thì phải<br>cỡ cỡ đó ^^</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">11:09</span>
+            </div>
+            <div class="bubble">hè mà sao đắt vậy</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">11:09</span>
+            </div>
+            <div class="bubble">tui cũng ko chắc lắm ^^ ông xuống dưới đăng ký rồi hỏi thầy luôn cũng đc mà</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">11:09</span>
+            </div>
+            <div class="bubble">ờ, thanks</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">11:09</span>
+            </div>
+            <div class="bubble">kcj :3</div>
+        </article>
+        
+    <div class="day-separator">
+        <span>Thứ Bảy, 15/08/2015</span>
+    </div>
+    
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">16:36</span>
+            </div>
+            <div class="bubble">Sinh nhật zui zẻ nhe :3</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">19:23</span>
+            </div>
+            <div class="bubble">thanks =D</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">19:24</span>
+            </div>
+            <div class="bubble">kcj ^^ hehe</div>
+        </article>
+        
+    <div class="day-separator">
+        <span>Chủ Nhật, 16/08/2015</span>
+    </div>
+    
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">18:51</span>
+            </div>
+            <div class="bubble">mai có kt toán không trang</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">18:52</span>
+            </div>
+            <div class="bubble">có ^^<br>Số nha :3</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">19:18</span>
+            </div>
+            <div class="bubble">thanks</div>
+        </article>
+        
+    <div class="day-separator">
+        <span>Thứ Bảy, 24/10/2015</span>
+    </div>
+    
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">21:08</span>
+            </div>
+            <div class="bubble">hỏi xin thầy file 10 câu để thứ hai kt đi trang</div>
+        </article>
+        
+    <div class="day-separator">
+        <span>Thứ Tư, 11/11/2015</span>
+    </div>
+    
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">21:08</span>
+            </div>
+            <div class="bubble">mai có tập văn nghệ không trang</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">21:09</span>
+            </div>
+            <div class="bubble">Co ^^</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">21:10</span>
+            </div>
+            <div class="bubble"><span class="empty-message">[tin nhắn trống]</span></div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">21:10</span>
+            </div>
+            <div class="bubble">hình như kịch bản mới</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">21:10</span>
+            </div>
+            <div class="bubble">What ?.?<br>Chac cho ong lum la ak ^^</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">23:28</span>
+            </div>
+            <div class="bubble">Lam cai bau khao sat h moi xong -.-<br>Bai khao sat</div>
+        </article>
+        
+    <div class="day-separator">
+        <span>Thứ Năm, 12/11/2015</span>
+    </div>
+    
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">01:08</span>
+            </div>
+            <div class="bubble">tôi cũng vừa mới xong</div>
+        </article>
+        
+    <div class="day-separator">
+        <span>Thứ Hai, 07/12/2015</span>
+    </div>
+    
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">21:22</span>
+            </div>
+            <div class="bubble">hoàng<br>có hình thầy thạnh ko<br>cho tui xin đi</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">21:23</span>
+            </div>
+            <div class="bubble">không<br>chi vậy</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">21:23</span>
+            </div>
+            <div class="bubble">ò<br>z thôi<br>tks</div>
+        </article>
+        
+    <div class="day-separator">
+        <span>Chủ Nhật, 13/12/2015</span>
+    </div>
+    
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">17:41</span>
+            </div>
+            <div class="bubble">oyyyyyyyyyyyy<br>câu 27 hơi kì</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">18:22</span>
+            </div>
+            <div class="bubble">khó như quỉ<br>tới 31 là đứng oy</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">18:46</span>
+            </div>
+            <div class="bubble">ông có đáp án tuyển tập lý thuyết ko</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">18:46</span>
+            </div>
+            <div class="bubble">không</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">21:09</span>
+            </div>
+            <div class="bubble">câu 68 ánh sáng<br>tuyển tập lý thuyết ông chọn j</div>
+        </article>
+        
+    <div class="day-separator">
+        <span>Thứ Hai, 14/12/2015</span>
+    </div>
+    
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">11:33</span>
+            </div>
+            <div class="bubble">Hoang oi<br>Ong sai bao nhiu cau. Thay hoi ak</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">11:44</span>
+            </div>
+            <div class="bubble">đâu có đáp án đâu</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">11:45</span>
+            </div>
+            <div class="bubble">Co</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">11:46</span>
+            </div>
+            <div class="bubble">ờ<br>thấy rồi</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">11:46</span>
+            </div>
+            <div class="bubble">Tui sai 3 cau<br>T.T<br>Ong do 2 cau dien thoy. May cau kia chac dung het oy</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">11:51</span>
+            </div>
+            <div class="bubble">câu R/Zl nó kì kì, tôi tính ra căn 2 mà</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">11:53</span>
+            </div>
+            <div class="bubble">Ra can cua 5+3can3<br>Z sai co cau do thoy ha</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">11:54</span>
+            </div>
+            <div class="bubble">câu Rl max và 1 câu ánh sáng, sai nhảm, đọc lộn thành chọn câu đúng</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">11:55</span>
+            </div>
+            <div class="bubble">Tui sai 2 cau do doc lon de :v ghe chua</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">11:56</span>
+            </div>
+            <div class="bubble">sao ra 5+3can3</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">11:56</span>
+            </div>
+            <div class="bubble">Giong bai bua ba ngoc lam ak</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">12:00</span>
+            </div>
+            <div class="bubble">C thay đổi urc cực đại → zc1=zl<br>C ↓ 3 → zc2=3ZC1=3ZL=(rbình+zl bình)/zl →2zl bình bằng = R bình → căn 2</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">12:01</span>
+            </div>
+            <div class="bubble">U rc cuc dai thi phai cai chum 4R^2  + Zc^2 chu<br>Lon nua ha</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">12:03</span>
+            </div>
+            <div class="bubble">rồi xong, tưởng đề gài ai dè mình gài mình :v</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">12:04</span>
+            </div>
+            <div class="bubble">Giong tui thoy. Keu C thay doi Ul max, doc thanh Uc max<br>:v Uc=can3 Ud, doc sao thanh Uc=can3Ul</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">12:06</span>
+            </div>
+            <div class="bubble">à câu đó làm tôi đứng 10p đọc đi đọc lại vẫn sai nhưng may cuối cùng làm đúng<br>có ai sai ít hơn không</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">12:07</span>
+            </div>
+            <div class="bubble">Thang minh manh sai 1 cau<br>Toan thanh</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">12:30</span>
+            </div>
+            <div class="bubble">Ey. Sau nay co giai de co tien nho keu tui nha :v</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">12:30</span>
+            </div>
+            <div class="bubble">thứ 7 này là tiếng anh, nhờ thư làm<br>nghi mình xuống hạng 2 quá</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">12:31</span>
+            </div>
+            <div class="bubble">Uh<br>Tu tu keo lai</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">12:32</span>
+            </div>
+            <div class="bubble">ờ</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">16:54</span>
+            </div>
+            <div class="bubble">hoàng ơi<br>cái nhận xét môn địa á<br>ông có ko, gửi qua cho tui với</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">16:56</span>
+            </div>
+            <div class="bubble">cô kêu cô đăng lại mà tôi chưa tải tối tôi tải cho</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">16:56</span>
+            </div>
+            <div class="bubble">ò ^^ tks trc he</div>
+        </article>
+        
+    <div class="day-separator">
+        <span>Thứ Năm, 17/12/2015</span>
+    </div>
+    
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">11:50</span>
+            </div>
+            <div class="bubble">Oy</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">11:51</span>
+            </div>
+            <div class="bubble">gì đó</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">11:52</span>
+            </div>
+            <div class="bubble">Mon sinh ak. Ong do chua</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">11:52</span>
+            </div>
+            <div class="bubble">rồi, sai 6 câu</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">11:53</span>
+            </div>
+            <div class="bubble">Co may cau sai dap an hay sao ak</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">11:53</span>
+            </div>
+            <div class="bubble">ờ, thấy nó kì kì<br>câu con trai bị bệnh là 50% mà<br>khỏe chứ, lộn</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">11:55</span>
+            </div>
+            <div class="bubble">25%<br>cái câu AaBbDdee x AaBbddEe cho ra con đồng hợp 4 cặp gen á<br>sao nó ra 1/8</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">11:58</span>
+            </div>
+            <div class="bubble">1/16 mà phải không</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">11:58</span>
+            </div>
+            <div class="bubble">uh</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">11:59</span>
+            </div>
+            <div class="bubble">câu trên tôi tưởng % trong số con trai</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">11:59</span>
+            </div>
+            <div class="bubble">uh<br>cái câu nam bt nữ có mẹ bt có bà ngoại có gen bệnh sinh ra con khỏe mạnh</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">12:00</span>
+            </div>
+            <div class="bubble">75% đúng không</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">12:00</span>
+            </div>
+            <div class="bubble">đáp án ra 12.5<br>ko thể nào con khỏe mạnh mà &lt; 50<br>phải nói cô mới đc</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">12:02</span>
+            </div>
+            <div class="bubble">còn họp thống nhất đáp án mà</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">12:02</span>
+            </div>
+            <div class="bubble">uh</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">12:03</span>
+            </div>
+            <div class="bubble">thầy hoàng làm ấu lắm :v</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">12:03</span>
+            </div>
+            <div class="bubble">chắc gv cũng ngồi tính lại mà hen ^^</div>
+        </article>
+        
+    <div class="day-separator">
+        <span>Chủ Nhật, 27/12/2015</span>
+    </div>
+    
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">12:09</span>
+            </div>
+            <div class="bubble">oy</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">12:10</span>
+            </div>
+            <div class="bubble"><a href="https://drive.google.com/file/d/0B_UJ2uHntBwdUlRRUzRKc2VPbVU/view?usp=sharing" target="_blank" rel="noopener noreferrer">https://drive.google.com/file/d/0B_UJ2uHntBwdUlRRUzRKc2VPbVU/view?usp=sharing</a></div>
+        
+		    <div class="bubble"><a href="https://drive.google.com/file/d/0B_UJ2uHntBwdUlRRUzRKc2VPbVU/view?resourcekey=0-N_tIlmk_EhQSuPnmybwF7w" target="_blank" rel="noopener noreferrer">https://drive.google.com/file/d/0B_UJ2uHntBwdUlRRUzRKc2VPbVU/view?resourcekey=0-N_tIlmk_EhQSuPnmybwF7w</a></div>
+
+		
+		</article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">20:39</span>
+            </div>
+            <div class="bubble">39 cau ak</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">20:40</span>
+            </div>
+            <div class="bubble">50 câu mà</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">20:40</span>
+            </div>
+            <div class="bubble">Y la tui lam ak</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">20:40</span>
+            </div>
+            <div class="bubble">vậy là được rồi</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">20:41</span>
+            </div>
+            <div class="bubble">O.O</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">20:41</span>
+            </div>
+            <div class="bubble">gửi đáp án cho tôi<br>chương làm được 40 câu, đang chờ nhật gửi đáp án</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">20:46</span>
+            </div>
+            <div class="bubble">cân đối đáp án chưa Trang đáp án có 15 câu A, 19 câu B, 13 Câu C, 3 Câu D</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">20:47</span>
+            </div>
+            <div class="bubble">B b c b b c d d a a c b b a  a b b b b d a d b b d c d a c  c b b a c a c c a a<br>Do lai thu ik</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">20:48</span>
+            </div>
+            <div class="bubble">cho tôi số thằng nhật</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">20:48</span>
+            </div>
+            <div class="bubble">0964459734</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">20:56</span>
+            </div>
+            <div class="bubble">40 ko biet lam. 41 c<br>43 a 44 a</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">21:02</span>
+            </div>
+            <div class="bubble">câu 6 B nha</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">21:02</span>
+            </div>
+            <div class="bubble">Uh :3<br>Dò lai ik ^^ co may cau lui ak</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">21:05</span>
+            </div>
+            <div class="bubble">Dò lại từ câu 1-10 nha: B B C B B<br>B A D A B<br>10A</div>
+        </article>
+        
+        <article class="message me">
+            <div class="message-meta">
+                <span class="sender">Việt Hoàng</span>
+                <span class="time">21:10</span>
+            </div>
+            <div class="bubble">đáp án có 3 câu D à mà bà đánh 1 đống</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">21:16</span>
+            </div>
+            <div class="bubble">Ai biet auz TT<br>Thi tui 10 a ma<br>45 c</div>
+        </article>
+        
+        <article class="message her">
+            <div class="message-meta">
+                <span class="sender">Kim Trang</span>
+                <span class="time">21:32</span>
+            </div>
+            <div class="bubble">48b</div>
+        </article>
+        
+    </section>
+
+    <footer class="footer-card">
+        <div class="footer-heart">❤</div>
+        <p>Trước khi có một câu chuyện dài, đã từng có những dòng tin nhắn rất nhỏ như thế.</p>
+		<p>Tớ để ý từng điều nhỏ nhặt như vậy...</p>
+		<p>nhưng có lẽ nó cũng chính là nguyên nhân khiến chúng ta không còn phù hợp để cùng đi tiếp...</p>
+		<p>Xin lỗi cậu ...</p>
+
+        <div class="small">Việt Hoàng &nbsp;•&nbsp; Kim Trang &nbsp;•&nbsp; Kỷ niệm được lưu lại</div>
+        <a class="to-top" href="#top">↑ Về đầu trang</a>
+    </footer>
+
+</main>
+</body>
+</html>
